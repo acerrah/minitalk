@@ -18,7 +18,7 @@ int main(int ac, char **av)
 		pid = ft_atoi(av[1]);
 		while (av[2][i])
 		{
-			while (j < 7)
+			while (j < 8)
 			{
 				if (av[2][i] & (1 << j))
 					kill(pid, SIGUSR1);
