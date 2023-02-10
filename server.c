@@ -1,19 +1,5 @@
 #include "utils.h"
 
-int reverse_bits(unsigned char byte)
-{
-	unsigned char reversed = 0;
-	int i;
-
-	i = 0;
-	while (i < 8)
-	{
-		reversed = reversed * 2 + (byte % 2);
-		byte /= 2;
-	}
-	return reversed;
-}
-
 void handler(int sig)
 {
 	static int rtn = 0;
@@ -22,7 +8,7 @@ void handler(int sig)
 	if (sig == SIGUSR1)
 		rtn = rtn | (1 << i);
 	i++;
-	if (i == 7)
+	if (i == 8)
 	{
 		write(1, &rtn, 1);
 		i = 0;
